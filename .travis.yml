@@ -1,5 +1,6 @@
 language: java
 jdk: openjdk10
+sudo: true
 script:
   - jdk_switcher use openjdk10
   - # do stuff with OpenJDK 10
@@ -8,3 +9,5 @@ script:
   - export JAVA_HOME=$HOME/openjdk11
   - $TRAVIS_BUILD_DIR/install-jdk.sh -F 11 --target $JAVA_HOME
   - # do stuff with open OpenJDK 11
+before_install:
+  - chmod +x mvnw
