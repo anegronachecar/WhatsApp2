@@ -1,5 +1,6 @@
 language: java
 sudo: true
+dist: trusty
 jdk: openjdk10
 script:
   - jdk_switcher use openjdk10
@@ -9,5 +10,7 @@ script:
   - export JAVA_HOME=$HOME/openjdk11
   - $TRAVIS_BUILD_DIR/install-jdk.sh -F 11 --target $JAVA_HOME
   - # do stuff with open OpenJDK 11
-    mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-    mvn test -B
+before_install:
+  - chmod +x mvnw
+  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+  -  mvn test -B
