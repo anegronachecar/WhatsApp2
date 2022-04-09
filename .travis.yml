@@ -11,5 +11,4 @@ script:
   - $TRAVIS_BUILD_DIR/install-jdk.sh -F 11 --target $JAVA_HOME
   - # do stuff with open OpenJDK 11
   - chmod +x mvnw
-  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
   - mvn test -B
